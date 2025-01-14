@@ -1,119 +1,448 @@
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Coming Soon</title>
-		<style>
-			body {
-				background-color: #f5f5f5;
-				margin-top: 8%;
-				color: #5d5d5d;
-				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-					"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-					"Noto Color Emoji";
-				text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
-				text-align: center;
-			}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This SHA256 tool generates secure hashes from strings, supports UTF-8, Hex, Base64, and HMAC, ensuring fast, reliable, and private hashing.">
+    <meta name="keywords" content="SHA256 online generator, SHA256 hash tool, secure hash generator, online hashing tool, HMAC support, create SHA256 hash, UTF-8 hash generator, Base64 hash tool, cryptographic hash, data integrity tool, SHA256 string hashing, free SHA256 tool, online hash calculator">
+    <meta property="og:title" content=">SHA256 Online Generator | Secure Hash Generator Tool">
+    <meta property="og:description" content="This SHA256 tool generates secure hashes from strings, supports UTF-8, Hex, Base64, and HMAC, ensuring fast, reliable, and private hashing.">
+    <meta property="og:image" content="https://www.sha256online.com/sba2560nline.png">
+    <meta property="og:url" content="https://www.sha256online.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SHA256 Online Generator | Secure Hash Generator Tool">
+    <meta name="twitter:description" content="This SHA256 tool generates secure hashes from strings, supports UTF-8, Hex, Base64, and HMAC, ensuring fast, reliable, and private hashing.">
+    <meta name="twitter:image" content="https://www.sha256online.com/sba2560nline.png">
+    <meta name="robots" content="index, follow">
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.svg">
+    
+     <!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "SHA256 Online Generator | Secure Hash Generator Tool",
+  "url": "https://www.sha256online.com/",
+  "description": "This SHA256 tool generates secure hashes from strings, supports UTF-8, Hex, Base64, and HMAC, ensuring fast, reliable, and private hashing.",
+  "keywords": [
+    "SHA256 online generator",
+    "SHA256 hash tool",
+    "secure hash generator",
+    "online hashing tool",
+    "HMAC support",
+    "create SHA256 hash",
+    "UTF-8 hash generator",
+    "Base64 hash tool",
+    "cryptographic hash",
+    "data integrity tool",
+    "SHA256 string hashing",
+    "free SHA256 tool",
+    "online hash calculator"
+  ],
+  "image": "https://www.sha256online.com/sba2560nline.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.sha256online.com/sba2560nline.png"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SHA256 Online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/logo.svg"
+    }
+  },
+  "inLanguage": "en",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.sha256online.com/sba2560nline.png?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
-			h1 {
-				font-size: 2.45em;
-				font-weight: 700;
-				color: #5d5d5d;
-				letter-spacing: -0.02em;
-				margin-bottom: 30px;
-				margin-top: 30px;
-			}
+    
+    
+    
+<title>SHA256 Online Generator | Secure Hash Generator Tool</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    
+<style>
+.ad-slot { background-color: #f7f7f7; padding: 20px; text-align: center; margin: 20px 0; border: 1px solid #ddd; } 
+.quiz-container { margin-top: 50px; } 
+.btn-option { width: 100%; margin: 5px 0; font-size: 18px; }
+.btn-option:hover { background-color: #000000; } 
+.correct-answer { background-color: #28a745 !important; color: white; font-weight: bold; } 
+.incorrect-answer { background-color: #dc3545 !important; color: white; } 
+.nav-link { color: #fff !important; } footer { background-color: #f8f9fa; padding: 30px 0; text-align: center; border-top: 1px solid #ccc; } 
+.nav-link { color: #fff !important; } .nav-link:hover { color: #007bff !important; } 
+.navbar { background-color: #000; } 
+.navbar-brand { color: #fff !important; } footer { background-color: #f8f9fa; padding: 30px 0; text-align: center; border-top: 1px solid #ccc; } footer 
+.footer-links { list-style-type: none; padding: 0; } footer 
+.footer-links li { display: inline; margin: 0 15px; } footer 
+.footer-links a { color: #000; text-decoration: none; } footer 
+.footer-links a:hover { color: #007bff; }
+.header {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+        }
+</style>
+    
+</head>
+<body>
 
-			.container {
-				width: 100%;
-				margin-right: auto;
-				margin-left: auto;
-			}
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">SHA256 Online Generator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html"> Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/privacy-policy.html"> Privacy Policy </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/disclaimer.html"> Disclaimer </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html"> About Us </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-			.animate__animated {
-				animation-duration: 1s;
-				animation-fill-mode: both;
-			}
+<!-- H1 Tag-->
+ <header class="header">
+ <h2> SHA256 Online Generator | Secure Hash Generator Tool </h2>
+ <p> Tools that helps you calculate hashes from strings.  </p>
+ </header>
 
-			.animate__fadeIn {
-				animation-name: fadeIn;
-			}
 
-			.info {
-				color: #5594cf;
-				fill: #5594cf;
-			}
+<div class='card my-1 p-1 w-100 text-center d-block'>
+More Tools: 
+<a href='/404.html'> SHA1 </a> | 
+<a href='/404.html'> SHA224 </a> | 
+<a href='/404.html'> SHA256 </a> | 
+<a href='/404.html'> SHA384 </a> |
+<a href='/404.html'> SHA512 </a> | 
+<a href='/404.html'> SHA512/224 </a> |
+<a href='/404.html'> SHA512/256 </a> |
+<a href='/404.html'> SHA3-224 </a> | 
+<a href='/404.html'> SHA3-256 </a> |
+<a href='/404.html'> SHA3-384 </a> |
+<a href='/404.html'> SHA3-512 </a>
+</div>
 
-			.error {
-				color: #c92127;
-				fill: #c92127;
-			}
 
-			.warning {
-				color: #ffcc33;
-				fill: #ffcc33;
-			}
 
-			.success {
-				color: #5aba47;
-				fill: #5aba47;
-			}
+    
+ <!--  Category -->
+<div class="container mt-4" id="SHA256">
 
-			.icon-large {
-				height: 132px;
-				width: 132px;
-			}
+        
+<!-- Division Starts-->
+<div class="container mt-6">
 
-			.description-text {
-				color: #707070;
-				letter-spacing: -0.01em;
-				font-size: 1.25em;
-				line-height: 20px;
-			}
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10 col-sm-12">
+        <!-- Input Encoding Selection -->
 
-			.footer {
-				margin-top: 40px;
-				font-size: 0.7em;
-			}
+        <div class="form-group">
+          <label for="inputEncodingSelect"> <b> Select Input Encoding Format: </b></label>
+          <select id="inputEncodingSelect" class="form-control">
+            <option value="text">Plaintext (UTF-8)</option>
+            <option value="base64">Base64</option>
+            <option value="hex">Hexadecimal</option>
+            <option value="binary">Binary (raw 0/1)</option>
+          </select>
+        </div>
 
-			.animate__delay-1s {
-				animation-delay: 1s;
-			}
+        <!-- Textarea for Input -->
+        <div class="form-group">
+          <label for="inputText">Enter Text:</label>
+          <textarea id="inputText" class="form-control" rows="4" placeholder="Enter text to hash..."></textarea>
+        </div>
 
-			@keyframes fadeIn {
-				from {
-					opacity: 0;
-				}
-				to {
-					opacity: 1;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="animate__animated animate__fadeIn">
-						<svg
-							class="warning icon-large fa-hard-hat"
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 512 512"
-						>
-							<path
-								d="M480 288c0-80.25-49.28-148.92-119.19-177.62L320 192V80a16 16 0 0 0-16-16h-96a16 16 0 0 0-16 16v112l-40.81-81.62C81.28 139.08 32 207.75 32 288v64h448zm16 96H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h480a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
-							></path>
-						</svg>
-					</div>
-					<h1 class="animate__animated animate__fadeIn">We're working on it!</h1>
-					<div class="description-text animate__animated animate__fadeIn animate__delay-1s">
-						<p>This Tool Page is currently under construction.</p>
-						<p>Please check back soon.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+
+
+        <!-- Hash Encoding Format Selection -->
+        <div class="form-group mt-3">
+          <label for="encodingSelect"> <b>Select Output Encoding Format:</b>b> </label>
+          <select id="encodingSelect" class="form-control">
+            <option value="hex-lower">Hex (Lowercase)</option>
+            <option value="hex-upper">Hex (Uppercase)</option>
+            <option value="base64">Base64</option>
+          </select>
+        </div>
+
+
+
+        <!-- Button to Generate Hash -->
+        <button id="generateHash" class="btn btn-primary btn-block">Generate SHA-256 Hash</button>
+
+        <!-- Display Generated Hash -->
+         <div class="form-group mt-3">
+          <label for="hashOutput">SHA-256 Hash:</label>
+          <textarea id="hashOutput" class="form-control" rows="4" readonly></textarea>
+        </div>
+
+
+        <!-- Copy Button -->
+        <button id="copyButton" class="btn btn-success btn-block" style="display:none;">Copy Hash to Clipboard</button>
+      </div>
+    </div>
+  </div>
+
+
+
+<script>
+    // Function to convert input text to bytes based on selected encoding
+    function convertInputToBytes(input, encoding) {
+      switch (encoding) {
+        case 'base64':
+          const decodedBase64 = atob(input);
+          return new TextEncoder().encode(decodedBase64);
+        case 'hex':
+          let hexString = input.replace(/\s/g, ''); // Remove any spaces
+          let bytes = [];
+          for (let i = 0; i < hexString.length; i += 2) {
+            bytes.push(parseInt(hexString.substr(i, 2), 16));
+          }
+
+          return new Uint8Array(bytes);
+        case 'binary':
+
+          let binaryString = input.replace(/\s/g, ''); // Remove any spaces
+          let binaryArray = [];
+          for (let i = 0; i < binaryString.length; i += 8) {
+            binaryArray.push(parseInt(binaryString.substr(i, 8), 2));
+          }
+          return new Uint8Array(binaryArray);
+        default:
+              
+          // Default is plaintext (UTF-8)
+          return new TextEncoder().encode(input);
+
+      }
+    }
+
+
+    // Function to generate SHA-256 hash
+    document.getElementById('generateHash').addEventListener('click', async function () {
+      const inputText = document.getElementById('inputText').value;
+      const inputEncoding = document.getElementById('inputEncodingSelect').value;
+
+
+      // Check if input is not empty
+      if (inputText.trim() === '') {
+        alert("Please enter some text to hash!");
+        return;
+      }
+
+
+      // Convert input text to bytes based on selected encoding
+      const data = convertInputToBytes(inputText, inputEncoding);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+      // Convert ArrayBuffer to hex string (lowercase)
+
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      let hashHexLower = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+      // Convert ArrayBuffer to hex string (uppercase)
+      let hashHexUpper = hashHexLower.toUpperCase();
+
+      // Convert ArrayBuffer to Base64
+      let hashBase64 = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)));
+
+
+      // Get selected encoding format
+      const encoding = document.getElementById('encodingSelect').value;
+
+
+      // Display the selected encoding format
+      let hashResult;
+      switch (encoding) {
+        case 'hex-lower':
+          hashResult = hashHexLower;
+          break;
+        case 'hex-upper':
+          hashResult = hashHexUpper;
+          break;
+        case 'base64':
+          hashResult = hashBase64;
+          break;
+      }
+
+
+
+      // Display the result in the hashOutput field
+      document.getElementById('hashOutput').value = hashResult;
+
+
+
+      // Show the Copy button
+      document.getElementById('copyButton').style.display = 'block';
+    });
+
+
+
+    // Copy the hash to clipboard when the Copy button is clicked
+    document.getElementById('copyButton').addEventListener('click', function () {
+      const hashOutput = document.getElementById('hashOutput');
+
+      // Select the text in the textarea
+
+      hashOutput.select();
+      hashOutput.setSelectionRange(0, 99999); // For mobile devices
+
+
+      // Copy the text to clipboard
+      document.execCommand('copy');
+
+      // Alert the user
+      alert("Hash copied to clipboard!");
+
+      // Optionally, you can hide the Copy button after the copy
+      document.getElementById('copyButton').style.display = 'none';
+    });
+  </script>
+  
+
+<!-- Division Ends-->
+
+    
+    
+
+
+
+<!-- SEO Content Section -->
+ <div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2 class="card-title">SHA256 Online Generator | Secure Hash Generator Tool</h2>
+        </div>
+        <div class="card-body">
+            <p>
+                SHA256 (Secure Hash Algorithm 256-bit) is a cryptographic hash function widely used in security applications and blockchain technology. It transforms any input into a fixed 256-bit hash, making it an ideal choice for data integrity and password storage.
+            </p>
+            <h3 class="mt-4">Features of Our SHA256 Online Generator:</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Fast and Efficient:</strong> Generate SHA256 hashes in real-time without delays.</li>
+                <li class="list-group-item"><strong>Secure:</strong> Your input data is processed securely without being stored or shared.</li>
+                <li class="list-group-item"><strong>User-Friendly:</strong> Simple interface designed for both technical and non-technical users.</li>
+                <li class="list-group-item"><strong>Free to Use:</strong> No fees, subscriptions, or hidden charges. Use it anytime, anywhere.</li>
+            </ul>
+            <h3 class="mt-4">Common Uses of SHA256 Hashes:</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Data Integrity: Ensure that files or messages have not been altered during transmission.</li>
+                <li class="list-group-item">Password Security: Protect passwords with secure, irreversible hashing.</li>
+                <li class="list-group-item">Blockchain Technology: Secure transactions and validate data blocks.</li>
+                <li class="list-group-item">Digital Signatures: Ensure the authenticity of digital documents and contracts.</li>
+            </ul>
+            <h3 class="mt-4">How to Use the SHA256 Online Generator:</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Enter the text or data in the input field.</li>
+                <li class="list-group-item">Click on the "Generate" button to create the hash.</li>
+                <li class="list-group-item">Copy the generated hash to use in your projects or applications.</li>
+            </ul>
+            <h3 class="mt-4">Benefits of Using SHA256:</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>1. Irreversible:</strong> SHA256 is a one-way hash function, meaning data cannot be reverse-engineered.</li>
+                <li class="list-group-item"><strong>2. Collision-Resistant:</strong> Reduces the risk of two inputs generating the same hash.</li>
+                <li class="list-group-item"><strong>3. Universally Accepted:</strong> Widely used across platforms, programming languages, and applications.</li>
+                <li class="list-group-item"><strong>4. Lightweight:</strong> Requires minimal computational resources, making it fast and efficient.</li>
+            </ul>
+            <h3 class="mt-4">Why Choose Our Tool?</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>1. Privacy-Focused:</strong> We prioritize your data privacy and never store your input.</li>
+                <li class="list-group-item"><strong>2. Accessible on All Devices:</strong> Use it on desktops, tablets, or smartphones with ease.</li>
+                <li class="list-group-item"><strong>3. Always Free:</strong> No limits, no charges, and no registration required.</li>
+                <li class="list-group-item"><strong>4. Constant Updates:</strong> Regularly updated to ensure compatibility and performance.</li>
+            </ul>
+            <h3 class="mt-4">Frequently Asked Questions (FAQs):</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>What is SHA256 used for?</strong>  
+                    SHA256 is commonly used for data integrity, password security, blockchain transactions, and digital signatures.
+                </li>
+                <li class="list-group-item"><strong>Can SHA256 be reversed?</strong>  
+                    No, SHA256 is a one-way cryptographic hash function, which means it cannot be reversed to retrieve the original input.
+                </li>
+                <li class="list-group-item"><strong>Is this tool free?</strong>  
+                    Yes, our SHA256 generator is completely free to use with no hidden costs or limitations.
+                </li>
+                <li class="list-group-item"><strong>Is it safe to use this tool?</strong>  
+                    Absolutely. We ensure that your input data is processed securely and is never stored or shared.
+                </li>
+            </ul>
+            <h3 class="mt-4">Conclusion:</h3>
+            <p>
+                The SHA256 Online Generator is a reliable and efficient tool for generating secure hashes for various applications. Whether you are a developer, security enthusiast, or casual user, this tool provides a quick and user-friendly solution for hashing your data. With its privacy-focused approach, compatibility across devices, and zero-cost usage, it is an indispensable resource for ensuring data integrity and security.
+            </p>
+            <p class="mt-4">
+                Start using our SHA256 Online Generator today and experience the ultimate convenience and security for your hashing needs!
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+         <!-- Add Images -->
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/sba2560nline.png" alt="SHA256 Online Generator" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <img src="/sba2560nline.png" alt="Secure Hash Generator Tool" class="img-fluid">
+        </div>
+    </div>
+    
+    
+    </div>
+    
+
+
+
+
+<!-- Footer with Pages -->
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+      <p>&copy; 2024 SHA256 Online Generator. All rights reserved.</p>
+    </div>
+  </footer>
+    
+    
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1-crypto-js.js"></script>
+    
+ <!-- Bootstrap JS and dependencies -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+   
+<!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script>
+<script type="text/javascript">sc_online_i(1704941,"ffffff","e61c1c");</script><br><noscript>
+<a href="https://www.supercounters.com/">free online counter</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
+
+</body>
 </html>
