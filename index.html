@@ -154,16 +154,14 @@
         <!-- Button to Generate Hash -->
         <button id="generateHash" class="btn btn-primary btn-block">Generate SHA-256 Hash</button>
 
-   <!-- Display Generated Hash -->
+        <!-- Display Generated Hash -->
          <div class="form-group mt-3">
           <label for="hashOutput">SHA-256 Hash:</label>
           <textarea id="hashOutput" class="form-control" rows="4" readonly></textarea>
         </div>
 
 
-
         <!-- Copy Button -->
-
         <button id="copyButton" class="btn btn-success btn-block" style="display:none;">Copy Hash to Clipboard</button>
       </div>
     </div>
@@ -186,165 +184,102 @@
           }
 
           return new Uint8Array(bytes);
-
         case 'binary':
 
           let binaryString = input.replace(/\s/g, ''); // Remove any spaces
-
           let binaryArray = [];
-
           for (let i = 0; i < binaryString.length; i += 8) {
-
             binaryArray.push(parseInt(binaryString.substr(i, 8), 2));
-
           }
-
           return new Uint8Array(binaryArray);
-
         default:
-
+              
           // Default is plaintext (UTF-8)
-
           return new TextEncoder().encode(input);
 
       }
-
     }
 
 
-
     // Function to generate SHA-256 hash
-
     document.getElementById('generateHash').addEventListener('click', async function () {
-
       const inputText = document.getElementById('inputText').value;
-
       const inputEncoding = document.getElementById('inputEncodingSelect').value;
 
 
-
       // Check if input is not empty
-
       if (inputText.trim() === '') {
-
         alert("Please enter some text to hash!");
-
         return;
-
       }
 
 
-
       // Convert input text to bytes based on selected encoding
-
       const data = convertInputToBytes(inputText, inputEncoding);
-
       const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-
-
 
       // Convert ArrayBuffer to hex string (lowercase)
 
       const hashArray = Array.from(new Uint8Array(hashBuffer));
-
       let hashHexLower = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
 
-
-
       // Convert ArrayBuffer to hex string (uppercase)
-
       let hashHexUpper = hashHexLower.toUpperCase();
 
-
-
       // Convert ArrayBuffer to Base64
-
       let hashBase64 = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)));
 
 
-
       // Get selected encoding format
-
       const encoding = document.getElementById('encodingSelect').value;
 
 
-
       // Display the selected encoding format
-
       let hashResult;
-
       switch (encoding) {
-
         case 'hex-lower':
-
           hashResult = hashHexLower;
-
           break;
-
         case 'hex-upper':
-
           hashResult = hashHexUpper;
-
           break;
-
         case 'base64':
-
           hashResult = hashBase64;
-
           break;
-
       }
 
 
 
       // Display the result in the hashOutput field
-
       document.getElementById('hashOutput').value = hashResult;
 
 
 
       // Show the Copy button
-
       document.getElementById('copyButton').style.display = 'block';
-
     });
 
 
 
     // Copy the hash to clipboard when the Copy button is clicked
-
     document.getElementById('copyButton').addEventListener('click', function () {
-
       const hashOutput = document.getElementById('hashOutput');
-
-
 
       // Select the text in the textarea
 
       hashOutput.select();
-
       hashOutput.setSelectionRange(0, 99999); // For mobile devices
 
 
-
       // Copy the text to clipboard
-
       document.execCommand('copy');
 
-
-
       // Alert the user
-
       alert("Hash copied to clipboard!");
 
-
-
       // Optionally, you can hide the Copy button after the copy
-
       document.getElementById('copyButton').style.display = 'none';
-
     });
-
   </script>
   
 
