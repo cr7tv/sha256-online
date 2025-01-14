@@ -150,24 +150,51 @@ More Tools:
 
 
     
- <!--  Category -->
+<!-- Category -->
 <div class="container mt-4" id="SHA256">
 
-        
-<!-- Division Starts-->
-<div class="container mt-6">
+  <!-- Division Starts -->
+  <div class="container mt-6">
 
     <div class="row justify-content-center">
       <div class="col-lg-8 col-md-10 col-sm-12">
         <!-- Input Encoding Selection -->
-
         <div class="form-group">
-          <label for="inputEncodingSelect"> <b> Select Input Encoding Format: </b></label>
+          <label for="inputEncodingSelect"> <b>Select Input Encoding Format:</b> </label>
           <select id="inputEncodingSelect" class="form-control">
             <option value="text">Plaintext (UTF-8)</option>
             <option value="base64">Base64</option>
             <option value="hex">Hexadecimal</option>
             <option value="binary">Binary (raw 0/1)</option>
+            <option value="base24">Base24</option>
+            <option value="utf-8">UTF-8</option>
+            <option value="utf-16le">UTF-16LE</option>
+            <option value="utf-16be">UTF-16BE</option>
+            <option value="ibm866">IBM866</option>
+            <option value="koi8r">KOI8-R</option>
+            <option value="koi8u">KOI8-U</option>
+            <option value="iso-8859-2">ISO-8859-2</option>
+            <option value="iso-8859-3">ISO-8859-3</option>
+            <option value="iso-8859-4">ISO-8859-4</option>
+            <option value="iso-8859-5">ISO-8859-5</option>
+            <option value="iso-8859-6">ISO-8859-6</option>
+            <option value="iso-8859-7">ISO-8859-7</option>
+            <option value="iso-8859-8">ISO-8859-8</option>
+            <option value="iso-8859-9">ISO-8859-9</option>
+            <option value="iso-8859-10">ISO-8859-10</option>
+            <option value="macintosh">Macintosh</option>
+            <option value="windows-874">Windows-874</option>
+            <option value="windows-1250">Windows-1250</option>
+            <option value="windows-1251">Windows-1251</option>
+            <option value="windows-1254">Windows-1254</option>
+            <option value="windows-1255">Windows-1255</option>
+            <option value="utf-32le">UTF-32LE</option>
+            <option value="utf-32be">UTF-32BE</option>
+            <option value="shift-jis">Shift-JIS</option>
+            <option value="euc-jp">EUC-JP</option>
+            <option value="big5">Big5</option>
+            <option value="gb2312">GB2312</option>
+            <option value="tis-620">TIS-620</option>
           </select>
         </div>
 
@@ -177,11 +204,9 @@ More Tools:
           <textarea id="inputText" class="form-control" rows="4" placeholder="Enter text to hash..."></textarea>
         </div>
 
-
-
         <!-- Hash Encoding Format Selection -->
         <div class="form-group mt-3">
-          <label for="encodingSelect"> <b>Select Output Encoding Format:</b>b> </label>
+          <label for="encodingSelect"><b>Select Output Encoding Format:</b></label>
           <select id="encodingSelect" class="form-control">
             <option value="hex-lower">Hex (Lowercase)</option>
             <option value="hex-upper">Hex (Uppercase)</option>
@@ -189,63 +214,81 @@ More Tools:
           </select>
         </div>
 
-
-
         <!-- Button to Generate Hash -->
         <button id="generateHash" class="btn btn-primary btn-block">Generate SHA-256 Hash</button>
 
         <!-- Display Generated Hash -->
-         <div class="form-group mt-3">
+        <div class="form-group mt-3">
           <label for="hashOutput">SHA-256 Hash:</label>
           <textarea id="hashOutput" class="form-control" rows="4" readonly></textarea>
         </div>
-
 
         <!-- Copy Button -->
         <button id="copyButton" class="btn btn-success btn-block" style="display:none;">Copy Hash to Clipboard</button>
       </div>
     </div>
   </div>
+  <!-- Division Ends -->
 
-
-
-<script>
+  <script>
     // Function to convert input text to bytes based on selected encoding
     function convertInputToBytes(input, encoding) {
-      switch (encoding) {
-        case 'base64':
-          const decodedBase64 = atob(input);
-          return new TextEncoder().encode(decodedBase64);
-        case 'hex':
-          let hexString = input.replace(/\s/g, ''); // Remove any spaces
+      const encoders = {
+        'base64': (input) => new TextEncoder().encode(atob(input)),
+        'hex': (input) => {
+          let hexString = input.replace(/\s/g, '');
           let bytes = [];
           for (let i = 0; i < hexString.length; i += 2) {
             bytes.push(parseInt(hexString.substr(i, 2), 16));
           }
-
           return new Uint8Array(bytes);
-        case 'binary':
-
-          let binaryString = input.replace(/\s/g, ''); // Remove any spaces
+        },
+        'binary': (input) => {
+          let binaryString = input.replace(/\s/g, '');
           let binaryArray = [];
           for (let i = 0; i < binaryString.length; i += 8) {
             binaryArray.push(parseInt(binaryString.substr(i, 8), 2));
           }
           return new Uint8Array(binaryArray);
-        default:
-              
-          // Default is plaintext (UTF-8)
-          return new TextEncoder().encode(input);
+        },
+        'base24': (input) => new TextEncoder().encode(input), // Customize as per base24 logic
+        'utf-8': (input) => new TextEncoder().encode(input),
+        'utf-16le': (input) => new TextEncoder('utf-16le').encode(input),
+        'utf-16be': (input) => new TextEncoder('utf-16be').encode(input),
+        'ibm866': (input) => new TextEncoder('ibm866').encode(input),
+        'koi8r': (input) => new TextEncoder('koi8r').encode(input),
+        'koi8u': (input) => new TextEncoder('koi8u').encode(input),
+        'iso-8859-2': (input) => new TextEncoder('iso-8859-2').encode(input),
+        'iso-8859-3': (input) => new TextEncoder('iso-8859-3').encode(input),
+        'iso-8859-4': (input) => new TextEncoder('iso-8859-4').encode(input),
+        'iso-8859-5': (input) => new TextEncoder('iso-8859-5').encode(input),
+        'iso-8859-6': (input) => new TextEncoder('iso-8859-6').encode(input),
+        'iso-8859-7': (input) => new TextEncoder('iso-8859-7').encode(input),
+        'iso-8859-8': (input) => new TextEncoder('iso-8859-8').encode(input),
+        'iso-8859-9': (input) => new TextEncoder('iso-8859-9').encode(input),
+        'iso-8859-10': (input) => new TextEncoder('iso-8859-10').encode(input),
+        'macintosh': (input) => new TextEncoder('macintosh').encode(input),
+        'windows-874': (input) => new TextEncoder('windows-874').encode(input),
+        'windows-1250': (input) => new TextEncoder('windows-1250').encode(input),
+        'windows-1251': (input) => new TextEncoder('windows-1251').encode(input),
+        'windows-1254': (input) => new TextEncoder('windows-1254').encode(input),
+        'windows-1255': (input) => new TextEncoder('windows-1255').encode(input),
+        'utf-32le': (input) => new TextEncoder('utf-32le').encode(input),
+        'utf-32be': (input) => new TextEncoder('utf-32be').encode(input),
+        'shift-jis': (input) => new TextEncoder('shift-jis').encode(input),
+        'euc-jp': (input) => new TextEncoder('euc-jp').encode(input),
+        'big5': (input) => new TextEncoder('big5').encode(input),
+        'gb2312': (input) => new TextEncoder('gb2312').encode(input),
+        'tis-620': (input) => new TextEncoder('tis-620').encode(input)
+      };
 
-      }
+      return encoders[encoding] ? encoders[encoding](input) : new TextEncoder().encode(input);
     }
-
 
     // Function to generate SHA-256 hash
     document.getElementById('generateHash').addEventListener('click', async function () {
       const inputText = document.getElementById('inputText').value;
       const inputEncoding = document.getElementById('inputEncodingSelect').value;
-
 
       // Check if input is not empty
       if (inputText.trim() === '') {
@@ -253,77 +296,31 @@ More Tools:
         return;
       }
 
-
       // Convert input text to bytes based on selected encoding
       const data = convertInputToBytes(inputText, inputEncoding);
       const hashBuffer = await crypto.subtle.digest('SHA-256', data);
 
       // Convert ArrayBuffer to hex string (lowercase)
-
       const hashArray = Array.from(new Uint8Array(hashBuffer));
-      let hashHexLower = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+      const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
 
-      // Convert ArrayBuffer to hex string (uppercase)
-      let hashHexUpper = hashHexLower.toUpperCase();
+      // Display the hash
+      document.getElementById('hashOutput').value = hashHex;
 
-      // Convert ArrayBuffer to Base64
-      let hashBase64 = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)));
-
-
-      // Get selected encoding format
-      const encoding = document.getElementById('encodingSelect').value;
-
-
-      // Display the selected encoding format
-      let hashResult;
-      switch (encoding) {
-        case 'hex-lower':
-          hashResult = hashHexLower;
-          break;
-        case 'hex-upper':
-          hashResult = hashHexUpper;
-          break;
-        case 'base64':
-          hashResult = hashBase64;
-          break;
-      }
-
-
-
-      // Display the result in the hashOutput field
-      document.getElementById('hashOutput').value = hashResult;
-
-
-
-      // Show the Copy button
+      // Show copy button
       document.getElementById('copyButton').style.display = 'block';
     });
 
-
-
-    // Copy the hash to clipboard when the Copy button is clicked
+    // Function to copy hash to clipboard
     document.getElementById('copyButton').addEventListener('click', function () {
       const hashOutput = document.getElementById('hashOutput');
-
-      // Select the text in the textarea
-
       hashOutput.select();
-      hashOutput.setSelectionRange(0, 99999); // For mobile devices
-
-
-      // Copy the text to clipboard
       document.execCommand('copy');
-
-      // Alert the user
-      alert("Hash copied to clipboard!");
-
-      // Optionally, you can hide the Copy button after the copy
-      document.getElementById('copyButton').style.display = 'none';
+      alert('Hash copied to clipboard!');
     });
   </script>
-  
 
-<!-- Division Ends-->
+</div>
 
     
     
