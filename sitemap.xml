@@ -12,6 +12,12 @@
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
+        <url>
+        <loc>https://www.sha256online.com/text-to-sha256-generator.html</loc>
+        <lastmod>2025-01-14</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
     <url>
         <loc>https://www.sha256online.com/calculate-sha256.html</loc>
         <lastmod>2025-01-14</lastmod>
