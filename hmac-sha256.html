@@ -251,6 +251,29 @@ More Tools:
     </div>
 
 
+
+<!-- Embed Function Starts-->
+ <div class="container text-center my-5">
+    <h4><strong>Embed to your site</strong></h4>
+    <div class="embed-code-wrapper my-4">
+      <textarea id="embedCode" class="form-control" rows="3" readonly>
+<iframe src="/embed/hmac-sha256" frameborder="0" style="width: 100%" loading="lazy"></iframe>
+      </textarea>
+    </div>
+    <button id="copyButton" class="btn btn-primary">Copy Code</button>
+  </div>
+
+  <script>
+    document.getElementById('copyButton').addEventListener('click', function () {
+      const embedCode = document.getElementById('embedCode');
+      embedCode.select();
+      embedCode.setSelectionRange(0, 99999); // For mobile devices
+      document.execCommand('copy');
+      alert('Embed code copied to clipboard!');
+    });
+  </script>
+<!-- Embed Function Ends-->
+      
   <script>
     // Function to convert input text to bytes based on selected encoding
     function convertInputToBytes(input, encoding) {
