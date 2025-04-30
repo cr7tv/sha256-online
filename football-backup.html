@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://www.yosintv.link/favicon.ico' rel='icon' type='image/x-icon'/>
+<title> Cricket | Football Live </title>
+<style>
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    font-family: Tahoma, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+#player {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+#text {
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+    
+</style>
+    
+</head>
+<body>
+<iframe id="player" loading="lazy" allowfullscreen></iframe>
+  
+<!--
+https://yosintv2.github.io/tv/soon.html
+-->
+    
+<script>
+const channels = {
+____: " ____  ",    
+
+    
+    
+xpsg: " https://cr7tv.github.io/player/dmca.html?url=https://funn-g1163.huibo.tv/UK/H68/chunks.m3u8?p=46&cf=1745953526&d=&ip=60.69.78.201&e=1749954126&h=ecbdb8761545ee91714eeee19051ed75  ",    
+ppvmanunited: " https://cr7tv.github.io/player/1m.html?url=https://c58bx6vat7sxiexj.freshsoup.shop/v3/director/VE1Y2U0YThlZWM1MjcyLTVkMmItZTBiNC1lYzJjLTcxNzM0YzM3/master.m3u8  ",    
+
+
+    
+    
+mstar: " https://cr7tv.github.io/player/1m.html?url=https://wikihznew.newkso.ru/wikihz/wiki68/mono.m3u8  ",     // El Classico
+digisports: " https://cr7tv.github.io/player/1m.html?url=https://top1new.newkso.ru/top1/premium400/mono.m3u8  ",     // El Classico
+
+    
+dazn1: " https://cr7tv.github.io/player/1m.html?url=https://ddy6new.newkso.ru/ddy6/premium426/mono.m3u8 ",     
+dazn2: " https://cr7tv.github.io/player/1m.html?url=https://ddy6new.newkso.ru/ddy6/premium427/mono.m3u8 ",   
+vodafone: " https://cr7tv.github.io/player/1m.html?url=https://windnew.newkso.ru/wind/premium260/mono.m3u8 ",    
+mlaliga: " https://cr7tv.github.io/player/1m.html?url=https://wikihznew.newkso.ru/wikihz/wiki68/mono.m3u8  ",  
+sslaliga: " https://cr7tv.github.io/player/1m.html?url=https://wikihznew.newkso.ru/wikihz/wikissll/mono.m3u8  ",    
+tudn: " https://cr7tv.github.io/player/1m.html?url=https://wikihznew.newkso.ru/wikihz/wikitudn/mono.m3u8  ",    
+usanet: " https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/SY3DkGmVQL/mono.m3u8  ",    
+mego1: " https://cr7tv.github.io/player/1m.html?url=https://esx1new.newkso.ru/esx1/primamegogosport1/mono.m3u8  ",    
+
+
+// All Devices 
+sportsnet: " https://yosintv2.github.io/bkp/plyrr.html?url=https://v1.thetvapp.to/hls/sportsnet-360/index.m3u8  ",    // Canada Sportsnet360
+sports5: " https://yosintv2.github.io/bkp/plyrr.html?url=https://rgelive.akamaized.net/hls/live/2043151/radiolive/playlist.m3u8  ",    
+ssports: " https://yosintv2.github.io/bkp/plyrr.html?url=https://bcovlive-a.akamaihd.net/540fcb034b144b848e7ff887f61a293a/eu-central-1/6415845530001/profile_0/chunklist.m3u8  ",    
+ssports2: " https://yosintv2.github.io/bkp/plyrr.html?url=https://bcovlive-a.akamaihd.net/29c60f23ea4840ba8726925a77fcfd0b/eu-central-1/6415845530001/profile_0/chunklist.m3u8 ",    //Full Serie A Matches
+
+
+    
+bein1: " https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/vTwenKA7UX/mono.m3u8 ",     
+bein2: " https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/aPIH0OWym5/mono.m3u8 ",     
+bein3: " https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/mrn5B7M8LK/mono.m3u8 ",     
+bein4: " https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/L8ovVrGfKb/mono.m3u8 ",     
+bein5: " https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/7varJ3UV8l/mono.m3u8 ",     
+ad1: " https://cr7tv.github.io/player/1m.html?url=https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/N0nZoHOXsC/mono.m3u8  ",    
+
+
+tsn1: " https://cr7tv.github.io/player/1m.html?url=https://fl5.moveonjoy.com/TSN_1/index.m3u8  ",    
+tsn2: " https://cr7tv.github.io/player/1m.html?url=https://fl5.moveonjoy.com/TSN_2/index.m3u8  ",    
+tsn3: " https://cr7tv.github.io/player/1m.html?url=https://fl5.moveonjoy.com/TSN_3/index.m3u8  ",    
+tsn4: " https://cr7tv.github.io/player/1m.html?url=https://fl5.moveonjoy.com/TSN_4/index.m3u8  ",    
+tsn5: " https://cr7tv.github.io/player/1m.html?url=https://fl5.moveonjoy.com/TSN_5/index.m3u8  ",    
+
+
+tnt1: " https://cr7tv.github.io/player/1m.html?url=https://wikihznew.newkso.ru/wikihz/wiki64/mono.m3u8  ",    
+
+
+    
+espnusa: " https://yosintv2.github.io/bkp/plyrr.html?url=https://v1.thetvapp.to/hls/espn-deportes/tracks-v1a1/mono.m3u8  ",    // All Live
+
+
+    
+ssc5: " https://cr7tv.github.io/player/1m.html?url=https://top1-cdnnew.newkso.ru/top1-cdn/qmbw7lxpX4/mono.m3u8  ",    
+ppbarcelona: " https://cr7tv.github.io/player/1m.html?url=https://c58bx6vat7sxiexj.freshsoup.shop/v3/director/VE1Y2JlYjE0NzhhNDMwLTEyMzgtNThiNC1lYTIzLTQ4NjZiYjc0/master.m3u8  ",    
+
+
+    
+    
+// PPV Links
+ppmiami: " https://cr7tv.github.io/player/1m.html?url=https://c58bx6vat7sxiexj.freshsoup.shop/v3/director/VE1NzVjMGU0ZmRiNDYzLTU5NmEtNTYzNC1lNDZmLTBhY2Y3NzY3/master.m3u8  ",    
+
+
+
+    
+//Nepal LIVE
+  
+psl: "https://live.mrgamingstream.net/Player/m3u?url=https://stream2.aryzap.com/v1/018a8885b8951eb401a603639363/018a88860ada09831f17035d95dd/main.m3u8 ",     // NEPAL
+psl1: " https://live.mrgamingstream.net/Player/jwads.html?src=https://live.mrgamingstream.net/Player/m3u?url=https://stream2.aryzap.com/v1/018a8885b8951eb401a603639363/018a88860ada09831f17035d95dd/main.m3u8",     // NEPAL
+
+
+
+    
+};
+
+
+
+    
+const urlParams = new URLSearchParams(window.location.search);
+const channel = urlParams.get('id');
+function setChannel(channel) {
+const iframe = document.getElementById('player');
+iframe.src = channels[channel] || channels.tnt1;
+}
+setChannel(channel);
+</script>
+
+
+
+
+        <!-- BEGIN: Powered by Supercounters.com -->
+        <div style="position:fixed;top:0;left:0;width:100%;height:1px;overflow:hidden;visibility:hidden;z-index:9999;">
+            <script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script>
+            <script type="text/javascript">
+                sc_online_i(1707252,"ffffff","ffffff");
+            </script>
+            <noscript><a href="https://www.supercounters.com/" style="visibility:hidden;">free online counter</a></noscript>
+        </div>
+    
+</body>
+</html>
